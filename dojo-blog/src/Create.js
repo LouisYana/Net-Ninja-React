@@ -1,9 +1,42 @@
+import { useState } from "react";
+
 const Create = () => {
-	return (
-		<div className='create'>
-			<h2>Create new blog</h2>
-		</div>
-	);
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
+    const [author, setAuthor] = useState("");
+
+    return (
+        <div className="create">
+            <h2>Create new blog</h2>
+            <form>
+                <label>Blog Title:</label>
+                <input
+                    type="text"
+                    required
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                />
+                <label>Blog Blog:</label>
+                <textarea
+                    required
+                    value={body}
+                    onChange={(e) => setBody(e.target.value)}
+                ></textarea>
+                <label>Blog Author:</label>
+                <select
+                    value={author}
+                    onChange={(e) => setAuthor(e.target.value)}
+                >
+                    <option value="mario">mario</option>
+                    <option value="yoshi">yoshi</option>
+                </select>
+                <button>Add Blog</button>
+                <p>{title}</p>
+                <p>{body}</p>
+                <p>{author}</p>
+            </form>
+        </div>
+    );
 };
 
 export default Create;
