@@ -14,6 +14,9 @@ const Home = () => {
             {error && <div>{error}</div>}
             {isPending && <div>Loading...</div>}
             {blogs && <BlogList blogs={blogs} title={"Blog List "} />}
+            {blogs && Object.keys(blogs).length == 0 && (
+                <h2 className="no-blogs">Nothing to see here :(</h2>
+            )}
         </div>
     );
 };
